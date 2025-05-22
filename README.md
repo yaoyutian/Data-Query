@@ -33,3 +33,56 @@
 ---
 
 后续可根据此架构逐步扩展各模块。
+
+# 快速运行前后端脚手架代码的方法如下：
+
+## 1. 启动后端（Express + TypeScript）
+
+推荐直接运行 TypeScript 版本（`app.ts`/`bin/www.ts`），如未编译可用 ts-node：
+
+```powershell
+# 进入 backend 目录
+cd backend
+
+# 安装依赖（如未安装）
+npm install
+
+# 运行 TypeScript 入口（需全局或本地 ts-node）
+npx ts-node ./bin/www.ts
+```
+
+如需运行原生 JavaScript 版本（app.js/www）：
+
+```powershell
+# 进入 backend 目录
+cd backend
+
+# 安装依赖
+npm install
+
+# 运行
+npm start
+```
+
+## 2. 启动前端（Next.js）
+
+```powershell
+# 进入 frontend 目录
+cd frontend
+
+# 安装依赖
+npm install
+
+# 启动开发服务器
+npm run dev
+```
+
+## 3. 访问
+
+- 前端访问：http://localhost:3000
+- 后端 API 访问：http://localhost:3001/api
+
+如需数据库支持或 .env 配置，请补充相关环境变量。  
+如遇端口冲突或报错，可根据提示调整端口或依赖。
+
+如需自动化一键启动，可在根目录编写简单的 PowerShell 脚本或使用 `concurrently` 工具。需要示例请告知。
