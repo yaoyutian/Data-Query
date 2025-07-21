@@ -74,12 +74,18 @@ const AppLayout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
     <html lang="zh-CN">
       <body>
         <Layout style={{ minHeight: '100vh' }}>
-          <Header>
+          <Header style={{ display: 'flex', alignItems: 'center' }}>
+            <div style={{ display: 'flex', alignItems: 'center', marginRight: 24 }}>
+              <Link href="/">
+                <img src="/favicon.ico" alt="logo" style={{ height: 50, marginRight: 16 ,marginTop:24}} />
+              </Link>
+            </div>
             <Menu
               theme="dark"
               mode="horizontal"
               defaultSelectedKeys={['collect']}
               items={items}
+              style={{ flex: 1 }}
             />
           </Header>
           <Layout>
