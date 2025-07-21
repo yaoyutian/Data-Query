@@ -14,3 +14,5 @@ const DeployPage: React.FC = () => {
     </div>
   );
 };
+
+export default DeployPage;

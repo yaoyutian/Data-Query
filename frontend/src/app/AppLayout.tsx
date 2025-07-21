@@ -1,4 +1,6 @@
+"use client"
 import React from 'react';
+import { usePathname } from 'next/navigation';
 import { Layout, Menu } from 'antd';
 import type { MenuProps } from 'antd';
 import Link from 'next/link';
@@ -29,7 +31,45 @@ const items: MenuProps['items'] = [
   },
 ];
 
+
 const AppLayout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
+  // 根据当前路由动态渲染侧边栏内容
+  const pathname = usePathname();
+  let sidebar: React.ReactNode = <div>请选择主页面</div>;
+  if (pathname.startsWith('/collect')) {
+    sidebar = (
+      <Menu
+        mode="inline"
+        defaultSelectedKeys={['upload']}
+        items={[{ key: 'upload', label: '文档上传' }, { key: 'tag', label: '标签管理' }, { key: 'extract', label: '文本提取' }, { key: 'export', label: '导出Markdown' }]}
+      />
+    );
+  } else if (pathname.startsWith('/dataset')) {
+    sidebar = (
+      <Menu
+        mode="inline"
+        defaultSelectedKeys={['source']}
+        items={[{ key: 'source', label: '数据源选择' }, { key: 'dedup', label: '数据去重' }, { key: 'clean', label: '数据清理' }, { key: 'semantic', label: '语义优化' }]}
+      />
+    );
+  } else if (pathname.startsWith('/train')) {
+    sidebar = (
+      <Menu
+        mode="inline"
+        defaultSelectedKeys={['param']}
+        items={[{ key: 'param', label: '超参数配置' }, { key: 'task', label: '训练任务' }, { key: 'log', label: '训练日志' }]}
+      />
+    );
+  } else if (pathname.startsWith('/deploy')) {
+    sidebar = (
+      <Menu
+        mode="inline"
+        defaultSelectedKeys={['model']}
+        items={[{ key: 'model', label: '模型部署' }, { key: 'chat', label: '对话评测' }, { key: 'metric', label: '评测指标' }]}
+      />
+    );
+  }
+
   return (
     <html lang="zh-CN">
       <body>
@@ -43,7 +83,7 @@ const AppLayout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
             />
           </Header>
           <Layout>
-            <Sider width={200} style={{ background: '#fff' }}>侧边栏内容</Sider>
+            <Sider width={200} style={{ background: '#fff' }}>{sidebar}</Sider>
             <Content style={{ padding: '24px' }}>{children}</Content>
           </Layout>
           <Footer style={{ textAlign: 'center' }}>数据搜集平台 ©2025</Footer>
