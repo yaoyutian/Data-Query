@@ -12,16 +12,20 @@ import Sider from "antd/es/layout/Sider";
 
 const items: MenuProps['items'] = [
   {
-    key: 'home',
-    label: <Link href="/">首页</Link>,
+    key: 'collect',
+    label: <Link href="/collect">数据收集</Link>,
   },
   {
-    key: 'upload',
-    label: <Link href="/upload">文档上传</Link>,
+    key: 'dataset',
+    label: <Link href="/dataset">数据集生成</Link>,
   },
   {
-    key: 'tags',
-    label: <Link href="/tags">标签管理</Link>,
+    key: 'train',
+    label: <Link href="/train">模型微调</Link>,
+  },
+  {
+    key: 'deploy',
+    label: <Link href="/deploy">部署评测</Link>,
   },
 ];
 
@@ -34,7 +38,7 @@ const AppLayout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
             <Menu
               theme="dark"
               mode="horizontal"
-              defaultSelectedKeys={['home']}
+              defaultSelectedKeys={['collect']}
               items={items}
             />
           </Header>

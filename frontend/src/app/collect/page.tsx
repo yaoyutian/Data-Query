@@ -3,11 +3,12 @@ import React, { useState } from 'react';
 import { Upload, Button, message, Form, Input, Select } from 'antd';
 import { UploadOutlined } from '@ant-design/icons';
 import api from '../../api/api';
-
-const { Option } = Select;
-
-const DocumentUpload: React.FC = () => {
-  const [fileList, setFileList] = useState<any[]>([]);
+/**
+ * 数据收集主页面
+ * 包含文档上传、标签选择等功能
+ */
+const CollectPage: React.FC = () => {
+    const [fileList, setFileList] = useState<any[]>([]);
   const [tags, setTags] = useState<string[]>([]);
   const [tagOptions, setTagOptions] = useState<{ id: number; name: string }[]>([]);
 
@@ -52,9 +53,9 @@ const DocumentUpload: React.FC = () => {
       </Form.Item>
       <Form.Item label="标签" name="tags" rules={[{ required: true, message: '请选择标签' }]}> 
         <Select mode="multiple" placeholder="请选择标签">
-          {tagOptions.map(tag => (
-            <Option key={tag.id} value={tag.name}>{tag.name}</Option>
-          ))}
+          {/* {tagOptions.map(tag => (
+             <Option key={tag.id} value={tag.name}>{tag.name}</Option>
+          ))} */}
         </Select>
       </Form.Item>
       <Button type="primary" htmlType="submit">上传</Button>
@@ -62,4 +63,4 @@ const DocumentUpload: React.FC = () => {
   );
 };
 
-export default DocumentUpload;
+export default CollectPage;
