@@ -86,3 +86,6 @@ npm run dev
 如遇端口冲突或报错，可根据提示调整端口或依赖。
 
 如需自动化一键启动，可在根目录编写简单的 PowerShell 脚本或使用 `concurrently` 工具。需要示例请告知。
+
+
+安装依赖：typeorm、multer、winston、axios、pdf-parse、mammoth、xlsx、tesseract.js 等。

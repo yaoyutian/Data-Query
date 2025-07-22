@@ -77,7 +77,7 @@ const AppLayout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
           <Header style={{ display: 'flex', alignItems: 'center' }}>
             <div style={{ display: 'flex', alignItems: 'center', marginRight: 24 }}>
               <Link href="/">
-                <img src="/favicon.ico" alt="logo" style={{ height: 50, marginRight: 16 ,marginTop:24}} />
+                <img src="/favicon.ico" alt="logo" style={{ height: 50, marginRight: 20 ,marginTop:24}} />
               </Link>
             </div>
             <Menu
